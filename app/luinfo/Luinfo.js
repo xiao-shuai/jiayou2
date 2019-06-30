@@ -13,12 +13,14 @@ import {
     SafeAreaView
 } from 'react-native'
 // import {observer,inject} from 'mobx-react';
-// import {yangs} from '../yangshi'
+import {theme} from '../qjstyle'
 // import {NavigationActions} from 'react-navigation'
-// import { Input ,Button} from 'react-native-elements';
-// import DatePicker from 'react-native-datepicker'
-// import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-// import Toast, {DURATION} from 'react-native-easy-toast'
+import { Input ,Button} from 'react-native-elements';
+import DatePicker from 'react-native-datepicker'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+import Toast, {DURATION} from 'react-native-easy-toast'
+import Icon from 'react-native-vector-icons/Ionicons'
+import {Top,Top2} from '../compont/compont'
 // @inject('allData')
 // @observer
 class Luinfo extends Component{
@@ -105,7 +107,7 @@ class Luinfo extends Component{
          start:this.state.date,
          end:this.state.date2
       }
-      this.props.allData.save_home_list(hjh)
+      // this.props.allData.save_home_list(hjh)
       this.props.navigation.navigate('OrderList')
     
       
@@ -113,14 +115,20 @@ class Luinfo extends Component{
   }
 
   render(){
-      console.log('qwq',this.props.allData.text)
+      // console.log('qwq',this.props.allData.text)
        return(
         <SafeAreaView style={{flex:1,alignItems:'center'}}>
-        <View style={{flex:1,width:'100%',alignItems:'center'}}>
-         
+        <View style={{flex:1,width:'100%',alignItems:'center',backgroundColor:theme.theme_bg}}>
+         <View style={styles.topbig}>
+          <Button icon={<Icon name={'ios-menu'} size={25} color='white' />} type='clear'/>
+          <Button title='book' type='clear' titleStyle={{
+            color:'white',fontSize:theme.sc_w*.06,fontWeight:'500'
+          }}/> 
+          <Button icon={<Icon name={'ios-megaphone'} size={25} color='white' />} type='clear'  />
+         </View>
          <KeyboardAwareScrollView contentContainerStyle={{alignItems:'center'}}>
 
-         <Input label={'name'} containerStyle={{marginTop:20}} 
+         {/* <Input label={'name'} containerStyle={{marginTop:20}} 
              labelStyle={{color:yangs.themeColor}}
            placeholder={'Please enter name'}
            onChangeText={(nm)=>{
@@ -212,7 +220,7 @@ class Luinfo extends Component{
          />
          <Button  title={'submit'} buttonStyle={{
               width:yangs.wd*.95,marginTop:20,bottom:10
-          }} onPress={()=>{this.ttt()}}/>
+          }} onPress={()=>{this.ttt()}}/> */}
           </KeyboardAwareScrollView>
           
         </View>
@@ -231,7 +239,11 @@ export default Luinfo
 
 const styles=StyleSheet.create({
  
-     
+     topbig:{
+      width:theme.sc_w,height:theme.sc_h*.1,
+      backgroundColor:theme.theme_Color,flexDirection:'row',
+      justifyContent:'space-between',alignItems:'center',padding:10
+     }
 
 })
 

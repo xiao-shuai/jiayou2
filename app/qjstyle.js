@@ -3,9 +3,9 @@ const { width, height } = Dimensions.get('window')
 
 export const theme={
     sc_w:width,
-    wc_h:height,   
-    theme_Color:"#666666",
-    theme_bg:'',
-    theme_hui:'#EDEDED',
+    sc_h:height,   
+    theme_Color:"#8360c3",
+    theme_bg:'#E0EAFC',
+    theme_hui:'#bdc3c7',
     themehui2:'#808080',
 }
