@@ -39,7 +39,7 @@ render(){
         alignItems:'center',
         justifyContent:'center'
         }}>
-        <Text style={{}}>{title}</Text>
+        <Text style={{color:'white',fontSize:theme.sc_w*.06,fontWeight:'500'}}>{title}</Text>
         </View>
     )
 }

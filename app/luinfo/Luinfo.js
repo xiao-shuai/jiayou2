@@ -30,10 +30,25 @@ class Luinfo extends Component{
              date:"",
              date2:"",
         }
+      
+        this.tab=[
+             {
+               left:'name',
+             },
+             {
+              left:'phone',
+            },
+            {
+              left:'company',
+            },
+            {
+              left:'address',
+           },
+        ]
+
     }
     dottoday=()=>{
         const date = new Date();
-        
         const fyear = date.getFullYear().toString();
         const fmonth = (date.getMonth()+1).toString();
         const fday = date.getDate().toString();
@@ -128,25 +143,97 @@ class Luinfo extends Component{
          </View>
          <KeyboardAwareScrollView contentContainerStyle={{alignItems:'center'}}>
           
-          <View style={{ width:theme.sc_w,flexDirection:'row',
-          justifyContent:'space-between',
-          alignItems:'center',
-          backgroundColor:'gold',
-          padding:10,marginTop:5
-          }}>
-            <Text style={{fontSize:theme.sc_w*.05}}>name</Text>
-            <Input  
-            containerStyle={{
-              width:theme.sc_w*.7,
-              backgroundColor:'white'
-            }}
-            inputContainerStyle={{borderBottomColor:'white'}}
-            inputStyle={{
-              marginLeft:5,
-              
-              }}/>
-          </View>
+          {
+            this.tab.map((i,k)=>{
+             return    <View style={styles.text_v}>
+             <Text style={styles.text_left}>{i.left}</Text>
+             <Input  
+             containerStyle={styles.text_con}
+             inputContainerStyle={styles.text_in_con}
+             inputStyle={{
+                marginLeft:5,
+               }}/>
+           </View>
+            })
+          }
+          <View style={styles.text_v}>
+             <Text style={styles.text_left}>start</Text>
+          
+         <DatePicker
+        style={[styles.text_con,{borderWidth:0}]}
+        
+        date={this.state.date}
+        mode="date"
+        showIcon={false}
+        placeholder="select date"
+        format="YYYY-MM-DD"
+        minDate={this.state.date}
+        maxDate="2020-06-01"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0
+          },
+          dateInput: {
+            marginLeft: 36,
+            borderWidth:0
+          }
+          // ... You can check the source to find the other keys.
+        }}
+        onDateChange={(date) => {this.setState({date: date})}}
+      />
 
+           </View>
+
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>end</Text>
+          
+         <DatePicker
+        style={[styles.text_con,{borderWidth:0}]}
+        
+        date={this.state.date}
+        mode="date"
+        showIcon={false}
+        placeholder="select date"
+        format="YYYY-MM-DD"
+        minDate={this.state.date}
+        maxDate="2020-06-01"
+        confirmBtnText="Confirm"
+        cancelBtnText="Cancel"
+        customStyles={{
+          dateIcon: {
+            position: 'absolute',
+            left: 0,
+            top: 4,
+            marginLeft: 0
+          },
+          dateInput: {
+            marginLeft: 36,
+            borderWidth:0
+          }
+          // ... You can check the source to find the other keys.
+        }}
+        onDateChange={(date) => {this.setState({date: date})}}
+      />
+
+           </View>
+    
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>reason</Text>
+             <Input  
+             containerStyle={styles.text_con}
+             multiline={true}
+             inputContainerStyle={styles.text_in_con}
+             inputStyle={{
+                marginLeft:5,
+               }}/>
+           </View>
+
+           <Button    buttonStyle={styles.bat} title={'submit'}/>
          {/* <Input label={'name'} containerStyle={{marginTop:20}} 
              labelStyle={{color:yangs.themeColor}}
            placeholder={'Please enter name'}
@@ -257,6 +344,27 @@ class Luinfo extends Component{
 export default Luinfo
 
 const styles=StyleSheet.create({
+  bat:{
+    width:theme.sc_w*.95,height:theme.sc_h*.05,marginTop:20,
+    marginBottom:10,backgroundColor:theme.theme_Color
+  },
+  text_in_con:{
+    borderBottomColor:'white',borderBottomWidth:0
+  },
+  text_con:{
+    width:theme.sc_w*.7,
+    backgroundColor:theme.theme_hui
+  },
+  text_left:{
+     fontSize:theme.sc_w*.05,color:theme.theme_Color
+  },
+     text_v:{
+      width:theme.sc_w,flexDirection:'row',
+      justifyContent:'space-between',
+      alignItems:'center',
+      backgroundColor:'white',
+      padding:10,marginTop:5
+     },
  
      topbig:{
       width:theme.sc_w,height:theme.sc_h*.1,
