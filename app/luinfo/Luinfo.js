@@ -127,6 +127,25 @@ class Luinfo extends Component{
           <Button icon={<Icon name={'ios-megaphone'} size={25} color='white' />} type='clear'  />
          </View>
          <KeyboardAwareScrollView contentContainerStyle={{alignItems:'center'}}>
+          
+          <View style={{ width:theme.sc_w,flexDirection:'row',
+          justifyContent:'space-between',
+          alignItems:'center',
+          backgroundColor:'gold',
+          padding:10,marginTop:5
+          }}>
+            <Text style={{fontSize:theme.sc_w*.05}}>name</Text>
+            <Input  
+            containerStyle={{
+              width:theme.sc_w*.7,
+              backgroundColor:'white'
+            }}
+            inputContainerStyle={{borderBottomColor:'white'}}
+            inputStyle={{
+              marginLeft:5,
+              
+              }}/>
+          </View>
 
          {/* <Input label={'name'} containerStyle={{marginTop:20}} 
              labelStyle={{color:yangs.themeColor}}
