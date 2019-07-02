@@ -9,7 +9,8 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View,YellowBox} from 'react-native';
 import Loijuroute from './app/dh'
-
+import {Provider} from 'mobx-react';
+import dd from './app/mmbb/index'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -21,7 +22,10 @@ type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <Loijuroute />
+      <Provider {...dd}>
+         <Loijuroute />
+      </Provider>
+     
     );
   }
 }

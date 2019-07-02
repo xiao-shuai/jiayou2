@@ -12,17 +12,18 @@ import {
     TextInput,AsyncStorage,
     SafeAreaView
 } from 'react-native'
-// import {observer,inject} from 'mobx-react';
+import {observer,inject} from 'mobx-react';
 import {theme} from '../qjstyle'
-// import {NavigationActions} from 'react-navigation'
+import {NavigationActions} from 'react-navigation'
 import { Input ,Button} from 'react-native-elements';
 import DatePicker from 'react-native-datepicker'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import Toast, {DURATION} from 'react-native-easy-toast'
 import Icon from 'react-native-vector-icons/Ionicons'
 import {Top,Top2} from '../compont/compont'
-// @inject('allData')
-// @observer
+
+@inject('lData')
+@observer
 class Luinfo extends Component{
     constructor(props){
         super(props)
@@ -56,56 +57,48 @@ class Luinfo extends Component{
         this.setState({date:aaafinal,date2:aaafinal})
       } 
 
-      fetchLatestData() {
-        this.setState({
-          refreshing: true
-        });
-        this.fetchData(0).then(movieList => {
-          this.setState({
-            movieList,
-            hasMore: movieList.length != 0,
-            refreshing: false
-          });
-        });
-      }
+     
 
       
 
       
-
+  componentWillMount(){
+    
+  }
      
      
 
      componentDidMount(){
+    
+      AsyncStorage.getItem('ss').then(res=>{
+        console.log('res:',res)
+        if(res==null){
+          this.props.navigation.reset([NavigationActions.navigate({ routeName: 'Lg' })], 0)
+        }
+       
+      }).catch(err=>{
+        console.log('err:',err)
+        
+      })
          this.dottoday()
       }
       componentWillMount(){
-        // AsyncStorage.getItem('qqq').then(res=>{
-        //   // console.log('sds',res)
-        //  if(res==null) {
-        //   this.props.navigation.reset([NavigationActions.navigate({ routeName: 'LLogin' })], 0)
-        //  }
-              
-        // }
-        // ).catch(err=>{
-        //   console.log('weeer',err)
-
-        // })
+        
       }
 
-  ttt=()=>{
-      if(this.state.nm==undefined){
+      sbsbsb=()=>{
+      if(this.state.nnm==undefined){
 
           return this.refs.toast.show('Please enter the name',1000)
 
-      }else if(this.state.ph==undefined){
+      }else if(this.state.pph==undefined){
 
           return this.refs.toast.show('Please enter the phone',1000)
-      }else if(this.state.ad==undefined){
-       return  this.refs.toast.show('Please enter the address',1000)
-      }else if(this.state.com==undefined){
+      }else if(this.state.cpp==undefined){
          return this.refs.toast.show('Please enter the company',1000) 
-      }
+      }else if(this.state.ddz==undefined){
+        return  this.refs.toast.show('Please enter the address',1000)
+       }
 
   
     fetch('https://easy-mock.com/mock/5d1472a93b2ae07e7cd63f3d/psuhdata',
@@ -130,32 +123,78 @@ class Luinfo extends Component{
   }
 
   render(){
-      // console.log('qwq',this.props.allData.text)
+    
        return(
         <SafeAreaView style={{flex:1,alignItems:'center'}}>
         <View style={{flex:1,width:'100%',alignItems:'center',backgroundColor:theme.theme_bg}}>
          <View style={styles.topbig}>
-          <Button icon={<Icon name={'ios-menu'} size={25} color='white' />} type='clear'/>
-          <Button title='book' type='clear' titleStyle={{
+          {/* <Button icon={<Icon name={'ios-menu'} size={25} color='white' />} type='clear'/> */}
+          <Button title='Meet' type='clear' titleStyle={{
             color:'white',fontSize:theme.sc_w*.06,fontWeight:'500'
           }}/> 
-          <Button icon={<Icon name={'ios-megaphone'} size={25} color='white' />} type='clear'  />
+          {/* <Button icon={<Icon name={'ios-megaphone'} size={25} color='white' />} type='clear'  /> */}
          </View>
          <KeyboardAwareScrollView contentContainerStyle={{alignItems:'center'}}>
           
-          {
-            this.tab.map((i,k)=>{
-             return    <View style={styles.text_v}>
-             <Text style={styles.text_left}>{i.left}</Text>
+          
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>name</Text>
              <Input  
+             onChangeText={(nnm)=>{
+              this.setState({nnm})
+          }}
              containerStyle={styles.text_con}
+             multiline={true}
              inputContainerStyle={styles.text_in_con}
              inputStyle={{
                 marginLeft:5,
                }}/>
            </View>
-            })
-          }
+
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>phone</Text>
+             <Input  
+             onChangeText={(pph)=>{
+              this.setState({pph})
+          }}
+             containerStyle={styles.text_con}
+             multiline={true}
+             inputContainerStyle={styles.text_in_con}
+             inputStyle={{
+                marginLeft:5,
+               }}/>
+           </View>
+
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>company</Text>
+             <Input  
+             onChangeText={(cpp)=>{
+              this.setState({cpp})
+          }}
+             containerStyle={styles.text_con}
+             multiline={true}
+             inputContainerStyle={styles.text_in_con}
+             inputStyle={{
+                marginLeft:5,
+               }}/>
+           </View>
+
+           <View style={styles.text_v}>
+             <Text style={styles.text_left}>address</Text>
+             <Input  
+             onChangeText={(ddz)=>{
+              this.setState({ddz})
+          }}
+             containerStyle={styles.text_con}
+             multiline={true}
+             inputContainerStyle={styles.text_in_con}
+             inputStyle={{
+                marginLeft:5,
+               }}/>
+           </View>
+           
+
+
           <View style={styles.text_v}>
              <Text style={styles.text_left}>start</Text>
           
@@ -195,12 +234,12 @@ class Luinfo extends Component{
          <DatePicker
         style={[styles.text_con,{borderWidth:0}]}
         
-        date={this.state.date}
+        date={this.state.date2}
         mode="date"
         showIcon={false}
         placeholder="select date"
         format="YYYY-MM-DD"
-        minDate={this.state.date}
+        minDate={this.state.date2}
         maxDate="2020-06-01"
         confirmBtnText="Confirm"
         cancelBtnText="Cancel"
@@ -217,7 +256,7 @@ class Luinfo extends Component{
           }
           // ... You can check the source to find the other keys.
         }}
-        onDateChange={(date) => {this.setState({date: date})}}
+        onDateChange={(date) => {this.setState({date2: date})}}
       />
 
            </View>
@@ -225,6 +264,7 @@ class Luinfo extends Component{
            <View style={styles.text_v}>
              <Text style={styles.text_left}>reason</Text>
              <Input  
+             placeholder='optional'
              containerStyle={styles.text_con}
              multiline={true}
              inputContainerStyle={styles.text_in_con}
@@ -233,100 +273,12 @@ class Luinfo extends Component{
                }}/>
            </View>
 
-           <Button    buttonStyle={styles.bat} title={'submit'}/>
-         {/* <Input label={'name'} containerStyle={{marginTop:20}} 
-             labelStyle={{color:yangs.themeColor}}
-           placeholder={'Please enter name'}
-           onChangeText={(nm)=>{
-            this.setState({nm})
-           }}
-         />
-         <Input label={'phone'} containerStyle={{marginTop:20}} 
-         labelStyle={{color:yangs.themeColor}}
-           placeholder={'Please enter phone'}
-           onChangeText={(ph)=>{
-            this.setState({ph})
-           }}
-         />
-          <Input label={'address'} containerStyle={{marginTop:20}} 
-          labelStyle={{color:yangs.themeColor}}
-           placeholder={'Please enter address'}
-           onChangeText={(ad)=>{
-             this.setState({ad})
-           }}
-         />
-          <Input label={'company'} containerStyle={{marginTop:20}} 
-          labelStyle={{color:yangs.themeColor}}
-           placeholder={'Please enter name'}
-           onChangeText={(com)=>{
-               this.setState({com})
-           }}
-         />
-          <View style={{marginTop:20,marginLeft:10,width:yangs.wd*.95}}>
-            <Text style={{fontSize:yangs.wd*.05 ,fontWeight:'500',color:yangs.themeColor,}}>start Time</Text>
-            <DatePicker
-        style={{width: 200,marginLeft:'20%'}}
-        date={this.state.date}
-        mode="date"
-        showIcon={false}
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate={this.state.date}
-        maxDate="2020-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={(date) => {this.setState({date: date})}}
-      />
-          </View>
-
-          <View style={{marginTop:20,marginLeft:10,borderBottomColor:yangs.themehui2,
-          borderBottomWidth:1,width:yangs.wd*.95
-          }}>
-            <Text style={{fontSize:yangs.wd*.05 ,fontWeight:'500',color:yangs.themeColor,}}>end Time</Text>
-            <DatePicker
-        style={{width: 200,marginLeft:'20%',marginBottom:10}}
-        date={this.state.date2}
-        mode="date"
-        placeholder="select date"
-        format="YYYY-MM-DD"
-        minDate={this.state.date2}
-        maxDate="2020-06-01"
-        confirmBtnText="Confirm"
-        cancelBtnText="Cancel"
-        showIcon={false}
-        customStyles={{
-          dateIcon: {
-            position: 'absolute',
-            left: 0,
-            top: 4,
-            marginLeft: 0
-          },
-          dateInput: {
-            marginLeft: 36
-          }
-          // ... You can check the source to find the other keys.
-        }}
-        onDateChange={(date) => {this.setState({date2: date})}}
-      />
-          </View>
-          <Input label={'note'} containerStyle={{marginTop:20}} 
-           placeholder={'optional'}
-         />
-         <Button  title={'submit'} buttonStyle={{
-              width:yangs.wd*.95,marginTop:20,bottom:10
-          }} onPress={()=>{this.ttt()}}/> */}
+           <Button    buttonStyle={styles.bat} title={'submit'} 
+               onPress={()=>{
+                 this.sbsbsb()
+               }}
+           />
+        
           </KeyboardAwareScrollView>
           
         </View>
@@ -334,6 +286,7 @@ class Luinfo extends Component{
         <Toast
        ref="toast"
        position='top'
+       
        opacity={0.8}
        />
      </SafeAreaView>
@@ -353,7 +306,7 @@ const styles=StyleSheet.create({
   },
   text_con:{
     width:theme.sc_w*.7,
-    backgroundColor:theme.theme_hui
+    backgroundColor:theme.theme_hui,borderRadius:5
   },
   text_left:{
      fontSize:theme.sc_w*.05,color:theme.theme_Color
@@ -367,9 +320,13 @@ const styles=StyleSheet.create({
      },
  
      topbig:{
-      width:theme.sc_w,height:theme.sc_h*.1,
-      backgroundColor:theme.theme_Color,flexDirection:'row',
-      justifyContent:'space-between',alignItems:'center',padding:10
+      width:theme.sc_w,
+      height:theme.sc_h*.1,
+      backgroundColor:theme.theme_Color,
+      // flexDirection:'row',
+      justifyContent:'center',
+      alignItems:'center',
+      // padding:10
      }
 
 })

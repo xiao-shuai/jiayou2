@@ -9,14 +9,16 @@ import {
  import  {
      Chainfo,
      Luinfo,
-     Meinfo
+     Meinfo,
+     Add,Lg
 } from  './pages'
 import {theme} from './qjstyle'
 
- const llllyyy=createBottomTabNavigator(
+ const aaasssq=createBottomTabNavigator(
     {
         Home:Luinfo,
         Address:Chainfo,
+        Add:Add,
         Me:Meinfo,
       },
       {
@@ -30,7 +32,10 @@ import {theme} from './qjstyle'
                iconName ='ios-home';
              } else if (routeName === 'Address') {
                iconName = 'ios-business';
-             }else{
+             }else if(routeName==='Add'){
+              iconName='ios-person'
+             }
+             else{
                  iconName='ios-person'
              }
              return  <Ionicons name={iconName} size={horizontal ? 20 : 25} 
@@ -45,8 +50,8 @@ import {theme} from './qjstyle'
  )
 
  const loijuroute =createStackNavigator({
-      llllyyy:{
-        screen:llllyyy,
+  aaasssq:{
+        screen:aaasssq,
         navigationOptions:()=>({
             header:null,
             headerBackTitle:null,
@@ -60,13 +65,13 @@ import {theme} from './qjstyle'
       //       title:'About us'
       //   })
       // },
-    //   Login:{
-    //     screen:Login,
-    //     navigationOptions:()=>({
-    //         // title:'About us'
-    //         header:null
-    //     })
-    //   },
+      Lg:{
+        screen:Lg,
+        navigationOptions:()=>({
+            // title:'About us'
+            header:null
+        })
+      },
     // OrderList:{
     //     screen:OrderList,
     //     navigationOptions:()=>({
