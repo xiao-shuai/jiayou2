@@ -107,18 +107,17 @@ class Luinfo extends Component{
     .then(res=>{})
     .catch(eree=>{})
 
-      let hjh={
-         nm:this.state.nm,
-         ph:this.state.ph,
-         ad:this.state.ad,
-         com:this.state.com,
-         start:this.state.date,
-         end:this.state.date2
+      let ssd={
+        xxm:this.state.nnm,
+        ddh:this.state.pph,
+        ddz:this.state.ddz,
+        ggs:this.state.cpp,
+        start:this.state.date,
+        end:this.state.date2
       }
-      // this.props.allData.save_home_list(hjh)
-      this.props.navigation.navigate('OrderList')
-    
-      
+      this.props.lData.oook(ssd)
+      this.props.navigation.navigate('Dingdan')
+     
 
   }
 

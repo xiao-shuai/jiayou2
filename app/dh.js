@@ -10,7 +10,7 @@ import {
      Chainfo,
      Luinfo,
      Meinfo,
-     Add,Lg
+     Add,Lg,Dingdan,Guanyuwm,Faak
 } from  './pages'
 import {theme} from './qjstyle'
 
@@ -72,26 +72,32 @@ import {theme} from './qjstyle'
             header:null
         })
       },
-    // OrderList:{
-    //     screen:OrderList,
-    //     navigationOptions:()=>({
-    //         title:'OrderList'
+      Dingdan:{
+        screen:Dingdan,
+        navigationOptions:()=>({
+            title:'The order details',
+            headerTintColor:theme.theme_Color
             
-    //     })
-    //   },
-      // Zhucc:{
-      //   screen:Zhucc,
-      //   navigationOptions:()=>({
-      //       title:'registered'    
-      //   })
-      // },
-      // LLogin:{
-      //   screen:LLogin,
-      //   navigationOptions:()=>({
-      //       // title:'registered'  
-      //       header:null  
-      //   })
-      // },
+            // header:null
+        })
+      },
+      Guanyuwm:{
+        screen:Guanyuwm,
+        navigationOptions:()=>({
+            title:'About us',
+            headerTintColor:theme.theme_Color
+            // header:null
+        })
+      },
+      Faak:{
+        screen:Faak,
+        navigationOptions:()=>({
+            title:'Feedback',
+            headerTintColor:theme.theme_Color
+            // header:null
+        })
+      },
+    
 
 
  })

@@ -26,16 +26,16 @@ class Meinfo extends Component{
        const sometab=[
            {
                n:'My Order',
-               go:''
+               go:'Dingdan'
            },
            {
             n:'Feedback',
-            go:''
+            go:'Faak'
         },
-        {
+         {
             n:'About',
-            go:''
-        },
+            go:'Guanyuwm'
+         },
         
 
        ]
@@ -60,6 +60,8 @@ class Meinfo extends Component{
                             <TouchableOpacity style={{
                                 width:'100%',padding:20,backgroundColor:'white',
                                 marginTop:k==0?15:2
+                            }} onPress={()=>{
+                                this.props.navigation.navigate(i.go)
                             }}>
                              <Text style={{fontSize:theme.sc_w*.05,color:theme.themehui2}}>{i.n}</Text>
                             </TouchableOpacity>
