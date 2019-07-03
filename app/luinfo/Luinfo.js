@@ -48,7 +48,7 @@ class Luinfo extends Component{
         ]
 
     }
-    dottoday=()=>{
+    timm=()=>{
         const date = new Date();
         const fyear = date.getFullYear().toString();
         const fmonth = (date.getMonth()+1).toString();
@@ -80,7 +80,7 @@ class Luinfo extends Component{
         console.log('err:',err)
         
       })
-         this.dottoday()
+         this.timm()
       }
       componentWillMount(){
         
@@ -297,7 +297,9 @@ export default Luinfo
 
 const styles=StyleSheet.create({
   bat:{
-    width:theme.sc_w*.95,height:theme.sc_h*.05,marginTop:20,
+    width:theme.sc_w*.95,
+    // height:theme.sc_h*.05,
+    marginTop:20,
     marginBottom:10,backgroundColor:theme.theme_Color
   },
   text_in_con:{

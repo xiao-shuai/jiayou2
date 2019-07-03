@@ -24,7 +24,12 @@ export default class Add extends  Component{
         
         }
     }
-
+componentDidMount(){
+    fetch('https://easy-mock.com/mock/5d1472a93b2ae07e7cd63f3d/lllst')
+    .then(res=>res.json())
+    .then(res=>{})
+    .catch(eree=>{})
+}
     render(){
         let tytt=[
             {
@@ -70,7 +75,7 @@ export default class Add extends  Component{
             }} pinColor={'#00FA9A'}>
             <Callout style={styles.aacallout} >
              <View style={{}}>
-                <Text>Beijing HuiLongGuan street </Text>
+                <Text>TianJing DaXiCheng street </Text>
              </View>
             </Callout>
           </Marker>
@@ -89,7 +94,6 @@ export default class Add extends  Component{
 
           }
 
-      
                     </ScrollView>
          
                 </View>

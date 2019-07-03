@@ -17,8 +17,8 @@ import {theme} from './qjstyle'
  const aaasssq=createBottomTabNavigator(
     {
         Home:Luinfo,
-        Address:Chainfo,
-        Add:Add,
+        List:Chainfo,
+        Place:Add,
         Me:Meinfo,
       },
       {
@@ -30,10 +30,10 @@ import {theme} from './qjstyle'
            let iconName;
            if (routeName === 'Home') {
                iconName ='ios-home';
-             } else if (routeName === 'Address') {
-               iconName = 'ios-business';
-             }else if(routeName==='Add'){
-              iconName='ios-person'
+             } else if (routeName === 'List') {
+               iconName = 'ios-paper';
+             }else if(routeName==='Place'){
+              iconName='ios-pin'
              }
              else{
                  iconName='ios-person'
@@ -58,17 +58,10 @@ import {theme} from './qjstyle'
         })
       },
       
-      
-      // AAAbout:{
-      //   screen:AAAbout, 
-      //   navigationOptions:()=>({
-      //       title:'About us'
-      //   })
-      // },
       Lg:{
         screen:Lg,
         navigationOptions:()=>({
-            // title:'About us'
+          
             header:null
         })
       },
@@ -77,8 +70,7 @@ import {theme} from './qjstyle'
         navigationOptions:()=>({
             title:'The order details',
             headerTintColor:theme.theme_Color
-            
-            // header:null
+          
         })
       },
       Guanyuwm:{

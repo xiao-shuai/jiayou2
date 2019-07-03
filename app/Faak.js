@@ -27,6 +27,11 @@ export default class Faak extends  Component{
         if(this.state.ff==undefined){
             return this.refs.toast.show('Please enter content',1000)
         }
+        fetch('https://easy-mock.com/mock/5d1472a93b2ae07e7cd63f3d/LOGINING',
+        {method:'POST'})
+        .then(res=>res.json())
+        .then(res=>{})
+        .catch(eree=>{})
         this.refs.toast.show('Thanks for your feedback! We will fix it as soon as possible',1000)
     }
     render(){

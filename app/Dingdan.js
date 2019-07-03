@@ -26,7 +26,12 @@ export default class Dingdan extends  Component{
         
         }
     }
-
+componentDidMount(){
+    fetch('https://easy-mock.com/mock/5d1472a93b2ae07e7cd63f3d/lllst')
+    .then(res=>res.json())
+    .then(res=>{})
+    .catch(eree=>{})
+}
     render(){
         // console.log('33',this.props.lData.aa)
         const list=this.props.lData.aaList
