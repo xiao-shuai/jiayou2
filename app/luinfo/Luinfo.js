@@ -31,6 +31,57 @@ class Luinfo extends Component{
              date:"",
              date2:"",
         }
+        let a =[{
+          key: 'top',
+          title: '头条',
+          icon_url: 'http://www.iconpng.com/download/png/48370'
+      },
+      {
+          key: 'shehui',
+          title: '社会',
+          icon_url: 'http://www.iconpng.com/download/png/48369'
+      },
+      {
+          key: 'guonei',
+          title: '国内',
+          icon_url: 'http://www.iconpng.com/download/png/48367'
+      },
+      {
+          key: 'guoji',
+          title: '国际',
+          icon_url: 'http://www.iconpng.com/download/png/48366'
+      },
+      {
+          key: 'yule',
+          title: '娱乐',
+          icon_url: 'http://www.iconpng.com/download/png/48370'
+      },
+      {
+          key: 'tiyu',
+          title: '体育',
+          icon_url: 'http://www.iconpng.com/download/png/48369'
+      },
+      {
+          key: 'junshi',
+          title: '军事',
+          icon_url: 'http://www.iconpng.com/download/png/48367'
+      },
+      {
+          key: 'keji',
+          title: '科技',
+          icon_url: 'http://www.iconpng.com/download/png/48366'
+      },
+      {
+          key: 'caijing',
+          title: '财经',
+          icon_url: 'http://www.iconpng.com/download/png/48370'
+      },
+      {
+          key: 'shishang',
+          title: '时尚',
+          icon_url: 'http://www.iconpng.com/download/png/48369'
+      },
+      ];
       
         this.tab=[
              {
@@ -59,15 +110,40 @@ class Luinfo extends Component{
 
      
 
-      
+   lett=()=>{
+//     dh:this.state.pph,
+//     ddz:this.state.ddz,
+//     ggs:this.state.cpp,
+//     start:this.state.date,
+//     end:this.state.date2
+//   }
+//   this.props.lData.oook(ssd)
+//   this.props.navigation.navigate('Dingdan')
+ 
+
+// }
+
+// render(){
+  //    ddz:this.state.ddz,
+//     ggs:this.state.cpp,
+//     start:this.state.date,
+//     end:this.state.date2
+//   }
+//   this.props.lData.oook(ssd)
+//   this.props.navigation.navigate('Dingdan')
+ 
+
+// }
+
+// render(){
+      }
 
       
   componentWillMount(){
     
   }
      
-     
-
+   
      componentDidMount(){
     
       AsyncStorage.getItem('ss').then(res=>{
