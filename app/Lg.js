@@ -80,8 +80,6 @@ class Lg extends Component{
                         height:theme.sc_w*.3,
                         borderRadius:theme.sc_w*.15
                     }}/>
-
-
                 </View>
             <ButtonGroup
             // buttonStyle={{backgroundColor:theme.theme_Color}}
